@@ -1,0 +1,67 @@
+main {
+  width: 900px;
+  height: 600px;
+  margin: auto;
+  text-align: center;
+
+}
+
+.title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 32px;
+}
+
+.widgets {
+  width: 100%;
+  height: 500px;
+  padding-top: 20px;
+}
+
+.todos {
+  width: 400px;
+  min-height: 400px;
+  font-family: 'Covered By Your Grace', cursive;
+  border: 1px solid black;
+  overflow: scroll;
+  text-align: left;
+  padding: 20px;
+  box-sizing: border-box;
+  transform: rotate(-10deg);
+  box-shadow: 3px 3px 2px #5e5e5e;
+}
+
+h3 {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 24px;
+  text-align: center;
+}
+
+input.input {
+  width: 250px;
+  height: 30px;
+  border: none;
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 18px;
+  border-bottom: 1px solid grey;
+  outline: none;
+}
+
+
+
+input.submit {
+  border:none;
+  margin-left: 10px;
+  height: 35px;
+  width: 80px;
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+}
+
+.todos li {
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+  text-align: left;
+}
