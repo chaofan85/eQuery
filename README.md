@@ -1,8 +1,10 @@
-# eQuery
+# Daily Widget feat. with eQuery
+
+Daily Widget is a web application which allows user to create todo list, check weather and update other daily schedules.
 
 eQuery is a JavaScript library for traversing and manipulating the DOM on the webpage, handling events and making AJAX requests. It is written in vanilla Javascript.
 
-## Features
+## Features of eQuery
 
 The main features of the library are:
 
@@ -15,7 +17,7 @@ This library allows user `$e` selector to select either a single HTMLElement or 
 * AJAX
 `$e.ajax` method makes AJAX request, the default HTTP method is `GET`. The method receives `url`, `method` and `data` as arguments.
 
-## Methods
+## eQuery Methods
 
 * `html()`
 
