@@ -4,9 +4,16 @@ $e(function() {
     e.preventDefault();
     const value = document.querySelector('.input').value;
     if (value) {
-      $e('.list').append(`<li>${value}</li>`);
+      $e('.list').
+      append(`<li class="list-item"><span class="item">${value}</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <span class="delete-item">X</span></li>`);
     }
     document.querySelector('.input').value = "";
+  });
+
+  $e('.list').on("click", function(e) {
+    $e(e.target).parent().remove();
   });
 
   $e.ajax({
@@ -15,7 +22,6 @@ $e(function() {
     success(data) {
 
       const jsonData = JSON.parse(data);
-      console.log(jsonData);
       showWeatherInfo(jsonData);
     },
     error() {
