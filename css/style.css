@@ -1,5 +1,11 @@
+body {
+  background-image: url('../images/desk.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 main {
-  width: 900px;
+  width: 800px;
   height: 600px;
   margin: auto;
   text-align: center;
@@ -9,25 +15,28 @@ main {
 .title {
   font-family: 'Rajdhani', sans-serif;
   font-size: 32px;
+  color: white;
 }
 
 .widgets {
   width: 100%;
   height: 500px;
-  padding-top: 20px;
+  padding-top: 30px;
+  display: flex;
+  padding-left: 200px;
 }
 
 .todos {
   width: 400px;
   min-height: 400px;
   font-family: 'Covered By Your Grace', cursive;
-  border: 1px solid black;
   overflow: scroll;
   text-align: left;
   padding: 20px;
   box-sizing: border-box;
-  transform: rotate(-10deg);
-  box-shadow: 3px 3px 2px #5e5e5e;
+  transform: rotate(10deg);
+  box-shadow: -2px 2px 2px black;
+  background-color: #fffdaa;
 }
 
 h3 {
@@ -37,13 +46,14 @@ h3 {
 }
 
 input.input {
-  width: 250px;
+  width: 200px;
   height: 30px;
   border: none;
   font-family: 'Covered By Your Grace', cursive;
   font-size: 18px;
   border-bottom: 1px solid grey;
   outline: none;
+  background-color: #fffdaa;
 }
 
 
@@ -64,4 +74,10 @@ input.submit {
   height: 50px;
   font-size: 24px;
   text-align: left;
+}
+
+.weather {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
 }
