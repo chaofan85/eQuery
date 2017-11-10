@@ -25,8 +25,28 @@ $e(function() {
 
   function showWeatherInfo(data) {
     // debugger
-    console.log(data.weather[0].main);
-    console.log(data.main.temp, data.main.humidity);
-    return;
+    let area = data.name;
+    let tempF = kelvinToFahrenheit(data.main.temp);
+    let tempC = kelvinToCelsius(data.main.temp);
+    let humidity = `${data.main.humidity}%`;
+    let windSpeed = `${data.wind.speed} mph`;
+    let description = data.weather[0].description;
+
+    $e('.data').append(`<p>${area}</p>`);
+    $e('.data').append(`<p>${description}</p>`);
+    $e('.data').append(`<p>The current temperature is ${tempF}&#8457;`);
+    $e('.data').append(`<p>The windSpeed is ${windSpeed}</p>`);
+    $e('.data').append(`<p>The humidity is ${humidity}</p>`);
   }
+
+  function kelvinToFahrenheit(k) {
+    return (k * 9 / 5 - 459.67).toFixed(0);
+  }
+  function kelvinToCelsius(k) {
+    return (k - 273.15).toFixed(0);
+  }
+
+  const date = new Date();
+  const dateString = date.toDateString();
+  $e(".date").append(dateString);
 });
