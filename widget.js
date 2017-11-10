@@ -38,9 +38,10 @@ $e(function() {
     let windSpeed = `${data.wind.speed} mph`;
     let description = data.weather[0].description;
 
-    $e('.data').append(`<p>${area}</p>`);
-    $e('.data').append(`<p>${description}</p>`);
-    $e('.data').append(`<p>The current temperature is ${tempF}&#8457;`);
+    $e('.data').append(`<span >${area}</span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>${description}</span>`);
+    $e('.data').append(`<p>The current temperature is ${tempF}°F`);
     $e('.data').append(`<p>The windSpeed is ${windSpeed}</p>`);
     $e('.data').append(`<p>The humidity is ${humidity}</p>`);
   }

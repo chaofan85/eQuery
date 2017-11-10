@@ -89,7 +89,9 @@ span.delete-item:hover {
   margin-left: 20px;
   transform: rotate(-15deg);
   z-index: 1;
-  font-family: 'Brawler', serif;
+  font-family: 'Poiret One', cursive;
+  font-size: 18px;
+  line-height: 1;
 }
 
 .ny-times {
