@@ -13,7 +13,9 @@ $e(function() {
   });
 
   $e('.list').on("click", function(e) {
-    $e(e.target).parent().remove();
+    if ($(e.target).attr('class') === 'delete-item') {
+      $e(e.target).parent().remove();
+    }
   });
 
   $e.ajax({
