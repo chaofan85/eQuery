@@ -1,8 +1,8 @@
-# Daily Widget feat. with eQuery
+# Desktop Widget feat. with eQuery
 
 [DEMO](http://www.chaofan.live/eQuery/)
 
-Daily Widget is a web application which allows user to create todo list, check weather and update other daily schedules.
+Desktop Widget is a web application which allows user to create todo list, check weather and update other daily schedules.
 
 eQuery is a JavaScript library for traversing and manipulating the DOM on the webpage, handling events and making AJAX requests. It is written in vanilla Javascript.
 
