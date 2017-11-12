@@ -24,6 +24,7 @@ main {
   padding-top: 10px;
   display: flex;
   padding-left: 150px;
+  margin-top: 50px;
 }
 
 .todos {
@@ -75,8 +76,7 @@ input.submit {
   height: 50px;
   font-size: 24px;
   text-align: left;
-  /*display: flex;
-  justify-content: space-between;*/
+
 }
 
 span.delete-item:hover {
@@ -114,12 +114,10 @@ span.delete-item:hover {
 
 .weather .date {
   text-align: center;
+  font-family: serif;
+  font-size: 14px;
 }
 
 .ny-times img {
   width: 80%;
-}
-
-.ipad {
-  width: 400px;
 }

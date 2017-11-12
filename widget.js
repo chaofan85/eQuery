@@ -19,7 +19,7 @@ $e(function() {
   });
 
   $e.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?q=NY,NY&appid=391d793ba88597f366c30161211f6ee5',
+    url: 'http://api.openweathermap.org/data/2.5/weather?q=NY,US&appid=391d793ba88597f366c30161211f6ee5',
     dataType: 'json',
     success(data) {
 
