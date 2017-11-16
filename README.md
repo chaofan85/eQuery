@@ -6,15 +6,32 @@ Desktop Widget is a web application which allows user to create todo list, check
 
 eQuery is a lightweight JavaScript library for traversing and manipulating the DOM on the webpage, handling events and making AJAX requests. It is written in vanilla JavaScript.
 
+## How to use
+
+This library includes two files: `lib/main.js` and `lib/dom_node_collection.js`. User can use `webpack` to import the library, use `main.js` as entry file.
+
 ## Features of eQuery
 
 The main features of the library are:
 
 * DOM Manipulation and Traversal.
-This library allows user `$e` selector to select either a single HTMLElement or a string with a CSS selector and use other functions to manipulate these elements.
+
+  Selector: `$e`
+
+  This library allows user `$e` selector to select either a single HTMLElement or a string with a CSS selector and use other functions to manipulate these elements.
+
+  For example, to select a `div` which has a class name `date`, use `$e('div .date')` to select this element.
 
 * Event Handling
 `on` methods attaches an event handler function to the selected elements, and `off` method cancels that event.
+
+  For example, to trigger `click` event, user following code:
+
+  ```js
+  $e('div').on("click", function() {
+    console.log('clicked!');
+  });
+  ```
 
 * AJAX
 `$e.ajax` method makes AJAX request, the default HTTP method is `GET`. The method receives `url`, `method` and `data` as arguments.
