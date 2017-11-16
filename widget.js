@@ -59,7 +59,8 @@ $e(function() {
   const dateString = date.toDateString();
   $e(".date").append(dateString);
 
-  $e(".todos div").on('click', function(e) {
+  $e(".colors div").on('click', function(e) {
+    e.stopPropagation()
     $e(".todos").removeClass("yellow blue pink");
     const classname = e.target.getAttribute("class");
     $e(".todos").addClass(`${classname}`);
