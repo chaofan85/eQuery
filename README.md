@@ -18,7 +18,7 @@ The main features of the library are:
 
   Selector: `$e`
 
-  This library allows user `$e` selector to select either a single HTMLElement or a string with a CSS selector and use other functions to manipulate these elements.
+  This library allows user to use `$e` selector to select either a single HTMLElement or a string with a CSS selector and use other functions to manipulate these elements.
 
   For example, to select a `div` which has a class name `date`, use `$e('div .date')` to select this element.
 
