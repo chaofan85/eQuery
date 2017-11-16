@@ -44,7 +44,7 @@ $e(function() {
       <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <span>${description}</span>`);
     $e('.data').append(`<p>The current temperature is ${tempF}°F`);
-    $e('.data').append(`<p>The windSpeed is ${windSpeed}</p>`);
+    $e('.data').append(`<p>The wind speed is ${windSpeed}</p>`);
     $e('.data').append(`<p>The humidity is ${humidity}</p>`);
   }
 
@@ -58,4 +58,10 @@ $e(function() {
   const date = new Date();
   const dateString = date.toDateString();
   $e(".date").append(dateString);
+
+  $e(".todos div").on('click', function(e) {
+    $e(".todos").removeClass("yellow blue pink");
+    const classname = e.target.getAttribute("class");
+    $e(".todos").addClass(`${classname}`);
+  });
 });
