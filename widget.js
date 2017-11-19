@@ -18,21 +18,40 @@ $e(function() {
     }
   });
 
-  $e.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?id=5128638&appid=391d793ba88597f366c30161211f6ee5',
-    dataType: 'json',
-    success(data) {
+  function gotLocation(pos) {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
 
-      const jsonData = JSON.parse(data);
-      showWeatherInfo(jsonData);
-    },
-    error() {
-      console.error("Something's wrong.");
-    }
-  });
+    return $e.ajax({
+      url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=391d793ba88597f366c30161211f6ee5`,
+      dataType: 'json',
+      success(data) {
+        const jsonData = JSON.parse(data);
+        showWeatherInfo(jsonData);
+      },
+      error() {
+        console.error("Something's wrong.");
+      }
+    });
+  }
+
+  function noLocation() {
+    $e.ajax({
+      url: 'http://api.openweathermap.org/data/2.5/weather?id=5128638&appid=391d793ba88597f366c30161211f6ee5',
+      dataType: 'json',
+      success(data) {
+        const jsonData = JSON.parse(data);
+        showWeatherInfo(jsonData);
+      },
+      error() {
+        console.error("Something's wrong.");
+      }
+    });
+  }
+
+  navigator.geolocation.getCurrentPosition(gotLocation, noLocation);
 
   function showWeatherInfo(data) {
-    // debugger
     let area = data.name;
     let tempF = kelvinToFahrenheit(data.main.temp);
     let tempC = kelvinToCelsius(data.main.temp);
