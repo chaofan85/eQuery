@@ -65,9 +65,30 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const DOMNodeCollection = __webpack_require__(1);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__todo_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__weather_js__ = __webpack_require__(4);
+
+
+
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(function() {
+  Object(__WEBPACK_IMPORTED_MODULE_1__todo_js__["a" /* todo */])();
+  Object(__WEBPACK_IMPORTED_MODULE_2__weather_js__["a" /* weatherApp */])();
+});
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const DOMNodeCollection = __webpack_require__(2);
 const callbacks = [];
 let ready = false;
 
@@ -82,6 +103,8 @@ const $e = (arg) => {
     return new DOMNodeCollection(nodeArray);
   }
 };
+/* unused harmony export $e */
+
 
 $e.ajax = (options) => {
   const request = new XMLHttpRequest();
@@ -147,11 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
   callbacks.forEach(func => func());
 });
 
-window.$e = $e;
+/* harmony default export */ __webpack_exports__["a"] = ($e);
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 class DOMNodeCollection{
@@ -318,6 +341,129 @@ class DOMNodeCollection{
 module.exports = DOMNodeCollection;
 
 
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = todo;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(1);
+
+
+function todo() {
+  addTodo();
+  deleteTodo();
+  changeColor();
+}
+
+function addTodo() {
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.submit').on('click', function(e){
+    e.preventDefault();
+    const value = document.querySelector('.input').value;
+    if (value) {
+      Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.list').
+      append(`<li class="list-item"><span class="item">${value}</span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <span class="delete-item">X</span></li>`);
+    }
+    document.querySelector('.input').value = "";
+  });
+}
+
+function deleteTodo() {
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.list').on("click", function(e) {
+    if ($(e.target).attr('class') === 'delete-item') {
+      Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(e.target).parent().remove();
+    }
+  });
+}
+
+function changeColor() {
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(".colors div").on('click', function(e) {
+    e.stopPropagation();
+    Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(".todos").removeClass("yellow blue pink");
+    const classname = e.target.getAttribute("class");
+    Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(".todos").addClass(`${classname}`);
+  });
+}
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = weatherApp;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(1);
+
+
+function weatherApp() {
+  navigator.geolocation.getCurrentPosition(gotLocation, noLocation);
+  showDate();
+}
+
+function gotLocation(pos) {
+  const lat = pos.coords.latitude;
+  const lon = pos.coords.longitude;
+
+  return __WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */].ajax({
+    url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=391d793ba88597f366c30161211f6ee5`,
+    dataType: 'json',
+    success(data) {
+      const jsonData = JSON.parse(data);
+      showWeatherInfo(jsonData);
+    },
+    error() {
+      console.error("Something's wrong.");
+    }
+  });
+}
+
+function noLocation() {
+  __WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */].ajax({
+    url: 'http://api.openweathermap.org/data/2.5/weather?id=5128638&appid=391d793ba88597f366c30161211f6ee5',
+    dataType: 'json',
+    success(data) {
+      const jsonData = JSON.parse(data);
+      showWeatherInfo(jsonData);
+    },
+    error() {
+      console.error("Something's wrong.");
+    }
+  });
+}
+
+function showWeatherInfo(data) {
+  let area = data.name;
+  let tempF = kelvinToFahrenheit(data.main.temp);
+  let tempC = kelvinToCelsius(data.main.temp);
+  let humidity = `${data.main.humidity}%`;
+  let windSpeed = `${data.wind.speed} mph`;
+  let description = data.weather[0].description;
+
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.data').append(`<span >${area}</span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>${description}</span>`);
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.data').append(`<p>The current temperature is ${tempF}°F`);
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.data').append(`<p>The wind speed is ${windSpeed}</p>`);
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.data').append(`<p>The humidity is ${humidity}</p>`);
+}
+
+function kelvinToFahrenheit(k) {
+  return (k * 9 / 5 - 459.67).toFixed(0);
+}
+
+function kelvinToCelsius(k) {
+  return (k - 273.15).toFixed(0);
+}
+
+function showDate() {
+  const date = new Date();
+  const dateString = date.toDateString();
+  Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(".date").append(dateString);
+}
+
+
 /***/ })
 /******/ ]);
-//# sourceMappingURL=eQuery.js.map
+//# sourceMappingURL=app.js.map

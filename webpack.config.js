@@ -1,9 +1,10 @@
 
+
 module.exports = {
-  entry: "./lib/main.js",
+  entry: "./scripts/widget.js",
   output: {
     path: __dirname,
-    filename: "./lib/eQuery.js"
+    filename: "./scripts/app.js"
 	},
 	devtool: "source-map"
 };
