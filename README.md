@@ -15,85 +15,117 @@ This library includes two files: `lib/main.js` and `lib/dom_node_collection.js`.
 The main features of the library are:
 
 * DOM Manipulation and Traversal.
-
-  Selector: `$e`
-
-  This library allows user to use `$e` selector to select either a single HTMLElement or a string with a CSS selector and use other functions to manipulate these elements.
-
-  For example, to select a `div` which has a class name `date`, use `$e('div .date')` to select this element.
-
 * Event Handling
-`on` methods attaches an event handler function to the selected elements, and `off` method cancels that event.
+* AJAX request
 
-  For example, to trigger `click` event, user following code:
-
-  ```js
-  $e('div').on("click", function() {
-    console.log('clicked!');
-  });
-  ```
-
-* AJAX
-`$e.ajax` method makes AJAX request, the default HTTP method is `GET`. The method receives `url`, `method` and `data` as arguments.
 
 ## eQuery Methods
+
+* selector `$e`
+
+  eQuery allows user to use `$e` selector to select either a single HTMLElement or a string with a CSS selector and use other functions to manipulate these elements.
+
+  For example, to select a `div` which has a class name `date`, use `$e('div .date')` to select this element.
 
 * `html()`
 
   If the method doesn't receive a string as argument, if will return the `innerHTML` of the selected element, otherwise it will over write the `innerHTML` the content of the selected element with the string argument.
 
+  For example, to get the content of the `div` element, use the following method:
+
   ```js
-  html(string) {
-    if (typeof string === 'undefined') {
-      return this.elements[0].innerHTML;
-    } else {
-      this.elements.forEach((el) => {
-        el.innerHTML = string;
-      });
-    }
-  }
+  const content = $e('div').html();
   ```
+
+  To overwrite the content of the `div` element, use the following method:
+
+  ```js
+  $e('div').html('<p>Overwrite</p>');
+  ```
+
+
+* `append()`
+
+  This method accepts either a eQuery wrapped collection, an HTML element, or a string. Append the `outerHTML` of each element in the argument to the `innerHTML` of each element in the `DOMNodeCollection`.
+
+  For example, to append a `li` to the `ul`, use the following method:
+
+  ```js
+  $e('ul').append('<li>appended</li>');
+  ```
+
 
 * `empty()`
 
   This method clears out the content of all nodes in the internal array.
 
+  For example, to remove the content of the `p` element, use the following method:
+
   ```js
-  empty() {
-    this.elements.forEach((el) => {
-      el.innerHTML = "";
-    });
-  }
+  $e('p').empty();
+  ```
+
+* `children()`
+
+  `children()` method returns a DOMNodeCollection of all children of all nodes in the array.
+
+  For example, to get the all children elements in `ol` element, use following method:
+
+  ```js
+  $e('ol').children();
   ```
 
 * `parent()`
 
-  Return a DOMNodeCollection of the parents of each of the nodes
+  Return a DOMNodeCollection of the parents of each of the nodes.
+
+  For example, to return the `li` element's parent element, use the following method:
 
   ```js
-  parent() {
-    let parentNodes = [];
-    this.each((node) => {
-      const parentNodeList = node.parentNode;
-      if (!parentNodes.includes(parentNodeList)) {
-        parentNodes = parentNodes.concat(parentNodeList);
-      }
-    });
-    return new DOMNodeCollection(parentNodes);
-  }
+  $e('li').parent();
   ```
 
-  * `remove()`
+* `find()`
+
+  Returns a DOMNodeCollection of all the nodes matching the selector passed in as an argument that are descendants of the nodes.
+
+  For example, to find all `p` elements in the `div` element, use the following method:
+
+  ```js
+  $e('div').find('p');
+  ```
+* `remove()`
 
   This method removes the html of all the nodes in the array from the DOM, and it also removes all nodes from the array.
 
+  For example, to remove all the nodes in the `div` element, use the following method:
+
   ```js
-  remove() {
-    let deleted = [];
-      this.elements.forEach((el) => {
-        deleted.push(el);
-        el.parentNode.removeChild(el);
-      });
-    return new DOMNodeCollection(deleted);
-  }
+  $e('div').remove();
   ```
+
+* `on()`
+
+  `on` methods attaches an event handler function to the selected elements, and `off` method cancels that event.
+
+    For example, to trigger `click` event, user following code:
+
+    ```js
+    $e('div').on("click", function() {
+      console.log('clicked!');
+    });
+    ```
+
+* `$e(callback)`
+
+   Callback function will be executed when the HTML has finished rendering.
+
+   For example:
+
+   ```js
+   $( () => alert('the document is ready'));
+   ```
+
+* `ajax()`
+
+  `$e.ajax` method makes AJAX request, the default HTTP method is `GET`. The method receives `url`, `method` and `data` as arguments.
