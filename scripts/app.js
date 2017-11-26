@@ -60,31 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__todo_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__weather_js__ = __webpack_require__(4);
-
-
-
-
-
-Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(function() {
-  Object(__WEBPACK_IMPORTED_MODULE_1__todo_js__["a" /* todo */])();
-  Object(__WEBPACK_IMPORTED_MODULE_2__weather_js__["a" /* weatherApp */])();
-});
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,6 +151,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* harmony default export */ __webpack_exports__["a"] = ($e);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__todo_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__weather_js__ = __webpack_require__(4);
+
+
+
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])(function() {
+  Object(__WEBPACK_IMPORTED_MODULE_1__todo_js__["a" /* todo */])();
+  Object(__WEBPACK_IMPORTED_MODULE_2__weather_js__["a" /* weatherApp */])();
+});
 
 
 /***/ }),
@@ -347,7 +347,7 @@ module.exports = DOMNodeCollection;
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = todo;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(0);
 
 
 function todo() {
@@ -394,7 +394,7 @@ function changeColor() {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = weatherApp;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_main_js__ = __webpack_require__(0);
 
 
 function weatherApp() {
@@ -407,7 +407,7 @@ function gotLocation(pos) {
   const lon = pos.coords.longitude;
 
   return __WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */].ajax({
-    url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=391d793ba88597f366c30161211f6ee5`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=391d793ba88597f366c30161211f6ee5`,
     dataType: 'json',
     success(data) {
       const jsonData = JSON.parse(data);
@@ -421,14 +421,14 @@ function gotLocation(pos) {
 
 function noLocation() {
   __WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */].ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?id=5128638&appid=391d793ba88597f366c30161211f6ee5',
+    url: 'https://api.openweathermap.org/data/2.5/weather?id=5128638&appid=391d793ba88597f366c30161211f6ee5',
     dataType: 'json',
     success(data) {
       const jsonData = JSON.parse(data);
       showWeatherInfo(jsonData);
     },
     error() {
-      console.error("Something's wrong.");
+      console.error("Something's wrong. :(");
     }
   });
 }

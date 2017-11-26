@@ -31,7 +31,7 @@ function noLocation() {
       showWeatherInfo(jsonData);
     },
     error() {
-      console.error("Something's wrong.");
+      console.error("Something's wrong. :(");
     }
   });
 }
