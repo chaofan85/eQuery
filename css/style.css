@@ -119,7 +119,7 @@ span.delete-item:hover {
 
 .weather {
   width: 430px;
-  height: 400px;
+  height: 380px;
   margin-left: 20px;
   transform: rotate(-15deg);
   z-index: 1;
@@ -179,8 +179,22 @@ span.delete-item:hover {
   text-align: left;
 }
 
+.equery {
+  width: 300px;
+  color: #fceb55;
+  transform: rotate(-15deg);
+  font-family: 'Rajdhani', cursive;
+  font-size: 20px;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.equery a, .equery a:visited {
+  color: #5df765;
+}
+
+
 .author {
-  color: white;
   margin-top: 20px;
   transform: rotate(-15deg);
   font-family: 'Poiret One', cursive;
