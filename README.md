@@ -132,6 +132,20 @@ The main features of the library are:
    $( () => alert('the document is ready'));
    ```
 
-* `ajax()`
+* `$e.ajax()`
 
   `$e.ajax` method makes AJAX request, the default HTTP method is `GET`. The method receives `url`, `method` and `data` as arguments.
+
+  ```js
+  $e.ajax({
+    url: 'some url',
+    method: 'GET',
+    dataType: 'json',
+    success() {
+      //some callback
+    },
+    error() {
+      //some callback
+    }
+  });
+  ```
