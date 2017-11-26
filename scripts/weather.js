@@ -10,7 +10,7 @@ function gotLocation(pos) {
   const lon = pos.coords.longitude;
 
   return $e.ajax({
-    url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=391d793ba88597f366c30161211f6ee5`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=391d793ba88597f366c30161211f6ee5`,
     dataType: 'json',
     success(data) {
       const jsonData = JSON.parse(data);
@@ -24,7 +24,7 @@ function gotLocation(pos) {
 
 function noLocation() {
   $e.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?id=5128638&appid=391d793ba88597f366c30161211f6ee5',
+    url: 'https://api.openweathermap.org/data/2.5/weather?id=5128638&appid=391d793ba88597f366c30161211f6ee5',
     dataType: 'json',
     success(data) {
       const jsonData = JSON.parse(data);
