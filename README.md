@@ -8,7 +8,13 @@ eQuery is a lightweight JavaScript library for traversing and manipulating the D
 
 ## How to use
 
-This library includes two files: `lib/main.js` and `lib/dom_node_collection.js`. User can use `webpack` to import the library, use `main.js` as entry file.
+This library includes two files: `lib/main.js` and `lib/dom_node_collection.js`. To use the library, user needs to download these two files and put in the same folder under the project directory.
+
+Any .js file which uses the methods from eQuery should `import` the library. If user is using `webpack`, add following statement at the top of the file:
+
+```js
+  import $e from './pathname/main.js';
+```
 
 ## Features of eQuery
 
