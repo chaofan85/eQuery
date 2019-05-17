@@ -363,7 +363,7 @@ function addTodo() {
     if (value) {
       Object(__WEBPACK_IMPORTED_MODULE_0__lib_main_js__["a" /* default */])('.list').
       append(`<li class="list-item"><span class="item">${value}</span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <span>&nbsp;</span>
               <span class="delete-item">X</span></li>`);
     }
     document.querySelector('.input').value = "";
